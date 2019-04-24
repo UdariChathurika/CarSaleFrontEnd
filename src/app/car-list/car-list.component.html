@@ -1,0 +1,8 @@
+<h1>Cars</h1>
+
+<div *ngFor = "let car of cars|async" style="width: 300px;">
+    <car-details [car]='car'></car-details>
+    <br>
+</div>
+
+ 

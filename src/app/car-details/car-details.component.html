@@ -1,0 +1,55 @@
+<div *ngIf="car">
+  <div [hidden] = "notupdated" >
+    <div class="card" style="width:400px;">
+        <div class="card-body">
+          <h5 class="card-title">Id: {{car.id}}</h5><hr>
+          <div>
+            <label>Model: </label> {{car.model}}
+          </div>
+          <div>
+            <label>Number: </label> {{car.number}}
+          </div>
+          <div>
+            <label>Color: </label> {{car.color}}
+          </div>
+          <div>
+            <label>Purchased Date: </label> {{ car.purchasedDate | date }}
+          </div>
+          <div>
+          <button type="button" class="button is-small btn-primary" (click)='updateCar()'>Update</button>&nbsp;
+          <button type="button" class="button is-small btn-danger" (click)='deleteCar()'>Delete</button>
+          </div>
+        </div>
+    </div><br>
+  </div>
+  <div [hidden] = "!notupdated" style="width:500px;">
+      <form (ngSubmit)="saveCar()">
+          <div class="card" style="width:400px;">
+            <div class="card-body">
+              <h5 class="card-title">Id: {{car.id}}</h5><hr>                
+              <div class="form-group">
+                  <label for="model">Model</label>
+                  <input type="text" class="form-control" id="model" required [(ngModel)]="car.model" name="model">
+              </div>
+              <div class="from-group">
+              <label for="number">Number</label>
+              <input type="text" class="form-control" id="number" required [(ngModel)]="car.number" name="number">    
+              </div>
+              <div>
+              <label for="color">Color</label>
+              <input type="text" class="form-control" id="color" required [(ngModel)]="car.color" name="color">
+              </div>
+              <label for="purchasedDate">Purchased Date</label>            
+              <div class="from-group">
+                <div class="show-inputbtns">
+                  <input type="date" data-date-inline-picker="false" data-date-open-on-focus="true" id="purchasedDate" required [(ngModel)]="car.purchasedDate" name="purchasedDate"/>
+                </div>
+              </div>
+              <br>
+              <button type="submit" class="btn btn-success">Save Car</button>
+            </div>
+          </div>
+      </form>
+  </div>  
+
+</div>
